@@ -1,0 +1,12 @@
+[Unit]
+Description=MySQL Exporter
+After=network.target mysqld.service
+
+[Service]
+Type=simple
+User=devops
+ExecStart=/usr/local/bin/mysqld_exporter --config.my-cnf=/etc/mysqld_exporter/.mysqld_exporter.cnf
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

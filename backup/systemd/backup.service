@@ -1,0 +1,7 @@
+[Unit]
+Description=Backup MySQL dump + application files (runs on each VPS)
+
+[Service]
+Type=oneshot
+User=backupuser
+ExecStart=/opt/devops-infra/backup/backup.sh

@@ -1,0 +1,32 @@
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'you@example.com'
+  smtp_auth_username: 'you@example.com'
+  smtp_auth_password: '__SMTP_PASSWORD__'
+  smtp_require_tls: true
+
+route:
+  receiver: 'default'
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 1m
+  repeat_interval: 4h
+  routes:
+    - match:
+        alertname: AppDown
+      receiver: 'default'
+      continue: true
+
+receivers:
+  - name: 'default'
+    email_configs:
+      - to: 'you@example.com'
+        send_resolved: true
+    telegram_configs:
+      - bot_token: '__TELEGRAM_BOT_TOKEN__'
+        chat_id: 123456789
+        send_resolved: true
+    webhook_configs:
+      - url: 'http://localhost:9095'
+        send_resolved: false

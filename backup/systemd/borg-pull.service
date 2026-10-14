@@ -1,0 +1,7 @@
+[Unit]
+Description=Pull VPS backups and archive with Borg
+
+[Service]
+Type=oneshot
+User=devops
+ExecStart=/opt/devops-infra/backup/borg_pull.sh

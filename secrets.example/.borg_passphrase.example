@@ -1,0 +1,1 @@
+generate with: openssl rand -base64 32 > ~/.borg_passphrase && chmod 600 ~/.borg_passphrase

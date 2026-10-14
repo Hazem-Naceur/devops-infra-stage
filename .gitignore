@@ -1,0 +1,23 @@
+# secrets
+.my_backup.cnf
+.my_restore.cnf
+.mysqld_exporter.cnf
+.borg_passphrase
+.alertmanager_secrets
+.duckdns_secrets
+alertmanager.yml
+id_borg_pull*
+*.pem
+*.key
+.env
+.env.*
+
+# runtime / build
+*.log
+*.pid
+nohup.out
+*.state
+target/
+.idea/
+.vscode/
+*.swp

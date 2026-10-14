@@ -1,0 +1,14 @@
+[Unit]
+Description=Alertmanager webhook listener (triggers failover.sh)
+After=network.target
+
+[Service]
+User=devops
+ExecStart=/usr/bin/python3 /opt/devops-infra/failover/webhook_listener.py
+StateDirectory=devops-infra
+LogsDirectory=devops-infra
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
